@@ -1,0 +1,36 @@
+README
+
+Eric Wilson
+CS423 Project 1
+
+UDP instant messaging client
+
+Platform used:
+	OSX 10.11.3
+	Written in X Code 7.2.1
+	C++ 4.2.1
+
+To run:
+	compile in terminal:
+		$ g++ main.cpp -pthread
+		$ ./a.out
+
+Logic:
+	-User is prompted for name
+	-A new thread is created to listen for messages from server
+	-user can press 's' and 'enter' at any time to "send message"
+		-user prompted for username to send message to
+		-user prompted for message body
+		-message is sent on main thread
+		-listener thread will notify if user is not logged in
+	-user can press 'x' and 'enter' at any time to exit program
+		-logoff message sent to server
+
+	Listener thread handles incoming messages to include
+		-keep alive messages
+			-replies correctly to notify server that user is still around
+		-messages from other users
+			-outputs to console in Glorious Technicolor
+		-notification messages from the server
+			-also in Glorious Technicolor
+		
